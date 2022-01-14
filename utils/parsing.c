@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:19:27 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 13:47:02 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/14 14:38:12 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	uniq(char	**str)
 		j = i + 1;
 		while (str[j])
 		{
-			if (str[i][0] == '\0' ||  ft_strcmp(str[i], str[j]) == 0)
+			if (str[i][0] == '\0' || ft_strcmp(str[i], str[j]) == 0)
 				return (0);
 			j++;
 		}
@@ -56,7 +56,7 @@ void	quick_check(char	**str)
 	{
 		write (1, RED, 8);
 		write (1, "Error!\n", 7);
-		write (1,END, 5);
+		write (1, END, 5);
 		exit (1);
 	}
 }

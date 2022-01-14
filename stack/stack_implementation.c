@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:08:36 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 11:35:44 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/14 14:03:25 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_sorted(t_stack *s)
 	tmp = s->top;
 	while (tmp->next)
 	{
-		if (tmp > tmp->next)
+		if (tmp->data > tmp->next->data)
 			return (0);
 		tmp = tmp->next;
 	}
