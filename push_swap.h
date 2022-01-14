@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 13:14:56 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 12:46:52 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/14 15:55:09 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,9 @@ void			rr(t_stack *a, t_stack *b);
 void			rra(t_stack *a, int flag);
 void			rrb(t_stack *b, int flag);
 void			rrr(t_stack *a, t_stack *b);
+
+/*---------Soting_Functions---------*/
+
+int				stack_min(t_stack *s);
+void			naive_sort(t_stack *a, t_stack *b);
 #endif

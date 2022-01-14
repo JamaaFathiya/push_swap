@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 10:32:49 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 14:39:31 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:49:15 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ int	main(int ac, char **av)
 	b = NULL;
 	quick_check(av);
 	a = fill_stack(ac, av, a);
-	b = fill_stack(ac, av, b);
+	b = init_stack(b);
+
 	printf("%s STACK A\n%s", YELLOW, END);
 	print(a);
-	printf("%s STACK B\n%s", GREEN, END);
-	print(b);
+	//printf("%s STACK B\n%s", GREEN, END);
+//	print(b);
 	printf("%s----AFTER----%s\n", RED, END);
-	rrr(a, b);
+	rra(a, 1);
 	printf("%s STACK A\n%s", YELLOW, END);
 	print(a);
-	printf("%s STACK B\n%s", GREEN, END);
-	print(b);
+
+   // naive_sort(a, b);
 	return (0);
 }

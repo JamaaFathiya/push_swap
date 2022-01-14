@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:19:27 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 14:38:12 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:56:41 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int	uniq(char	**str)
 	int	j;
 
 	i = 0;
-	while (str[i + 1])
+	while (str[i])
 	{
 		j = i + 1;
+		if (str[i][0] == '\0')
+			return (0);
 		while (str[j])
 		{
-			if (str[i][0] == '\0' || ft_strcmp(str[i], str[j]) == 0)
+			if (ft_strcmp(str[i], str[j]) == 0)
 				return (0);
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:15:22 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 11:36:02 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:52:02 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	push(int data, t_stack *s)
 
 	temp = new_node(data);
 	if (is_empty(s))
+	{
 		s->base = temp;
+		s->base = temp;
+	}
 	else
 	{
 		temp->next = s->top;
@@ -75,15 +78,12 @@ void	exhale(t_stack *s)
 	{
 		tmp = s->base;
 		if (s->size == 1)
-		{
 			s->top = NULL;
-			s->base = NULL;
-		}
 		else
 		{
 			tmp->prev->next = NULL;
-			s->base = tmp;
 		}
+		s->base = tmp;
 		free(tmp);
 		s->size--;
 	}

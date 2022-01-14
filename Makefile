@@ -6,7 +6,7 @@
 #    By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 09:18:36 by fathjami          #+#    #+#              #
-#    Updated: 2022/01/14 11:34:10 by fathjami         ###   ########.fr        #
+#    Updated: 2022/01/14 16:02:30 by fathjami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,15 @@ NAME = push_swap
 STACK = $(addprefix stack/, stack_implementation stack_operations)
 UTILS = $(addprefix utils/, parsing secondary_func)
 INSTRUCTIONS = $(addprefix instructions/, swap push rotate reverse_rotate)
+SORTING = $(addprefix sorting/, naive_sorting)
 HEADER = push_swap.h
-FILES = $(STACK) $(UTILS) $(INSTRUCTIONS) core
+FILES = $(STACK) $(UTILS) $(INSTRUCTIONS) $(SORTING) core
 SRC = $(FILES:=.c)
 OBJ = $(FILES:=.o)
+
+ifeq ($(DEBUG), 1)
+OPT = -g
+endif
 
 #BACKGROUND COLORS
 BRED = \x1b[41m
@@ -43,11 +48,11 @@ UNDER = \x1b[4m
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@$(CC) $(FLAGS) $(OBJ) -I ./ -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) $(OPT) -I ./ -o $(NAME)
 	@printf " [$(BOLD)$(GREEN):)$(END)] [$(BOLD)$(GREEN)SUCCESS$(END)]\n"
 
 %.o: %.c $(HEADER)
-	@$(CC) $(FLAGS) -I ./ -c $< -o $@
+	@$(CC) $(FLAGS) $(OPT) -I ./ -c $< -o $@
 
 clean: 
 	@$(RM) $(OBJ)
