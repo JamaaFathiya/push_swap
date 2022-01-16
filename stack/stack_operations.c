@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:15:22 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 16:52:02 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/16 13:24:49 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	exhale(t_stack *s)
 		{
 			tmp->prev->next = NULL;
 		}
-		s->base = tmp;
+		s->base = tmp->prev;
 		free(tmp);
 		s->size--;
 	}

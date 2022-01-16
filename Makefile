@@ -6,7 +6,7 @@
 #    By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 09:18:36 by fathjami          #+#    #+#              #
-#    Updated: 2022/01/14 16:02:30 by fathjami         ###   ########.fr        #
+#    Updated: 2022/01/16 13:23:38 by fathjami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,9 @@ $(NAME): $(OBJ) $(HEADER)
 
 %.o: %.c $(HEADER)
 	@$(CC) $(FLAGS) $(OPT) -I ./ -c $< -o $@
+
+test:
+	@sh testing/testing.sh $(ARG) 
 
 clean: 
 	@$(RM) $(OBJ)
