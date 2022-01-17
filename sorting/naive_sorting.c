@@ -6,17 +6,37 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:45:05 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/16 15:43:11 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/17 10:37:06 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
+
 void	sort_three(t_stack	*s)
 {
+	int	min; 
+
+	min = stack_min(s);
+	if (min == 1)
+		if (s->top->data > s->base->data)
+			ra(s, 1);
+		else
+			sa(s, 1);
+	else if (min == 2)
+		if (s->top->data > s->top->next->data)
+		{
+			sa(s, 1);
+			rra(s, 1);
+		}
+		else
+			rra(s, 1);
+	else
+	{
+		sa(s, 1);
+		ra(s, 1);
+	}
 
 }
-*/
 
 int	stack_min(t_stack *s)
 {
@@ -49,22 +69,26 @@ void	naive_sort(t_stack *a, t_stack *b)
 	int	index;
 	int	i;
 
-	//if(a->size == 3)
-	//	sort_three(a);
 	while (!is_sorted(a))
 	{
-		i = 0;
-		index = stack_min(a);
-		if (index == -1)
-			return ;
-		if (index <= a->size / 2)
-			while (i++ < index)
-				ra(a, 1);
+
+		if(a->size == 3)
+			sort_three(a);
 		else
-			while (i++ < a->size - index)
-				rra(a, 1);
-		if (!is_sorted(a))
-			pb(b, a);
+		{
+			i = 0;
+			index = stack_min(a);
+			if (index == -1)
+				return ;
+			if (index <= a->size / 2)
+				while (i++ < index)
+					ra(a, 1);
+			else
+				while (i++ < a->size - index)
+					rra(a, 1);
+			if (!is_sorted(a))
+				pb(b, a);
+		}
 	}
 	while (!is_empty(b))
 		pa(a, b);
