@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:45:05 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/17 10:37:06 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:19:05 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort_three(t_stack	*s)
 	}
 
 }
-
+/*
 int	stack_min(t_stack *s)
 {
 	int				min;
@@ -63,7 +63,7 @@ int	stack_min(t_stack *s)
 	}
 	return (index);
 }
-
+*/
 void	naive_sort(t_stack *a, t_stack *b)
 {
 	int	index;
@@ -92,4 +92,12 @@ void	naive_sort(t_stack *a, t_stack *b)
 	}
 	while (!is_empty(b))
 		pa(a, b);
+}
+
+void	six_chunks(t_stack *a, t_stack *b, int min, int max)
+{
+}
+
+void	twelve_chunks(t_stack *a, t_stack *b, int min, int max)
+{
 }
