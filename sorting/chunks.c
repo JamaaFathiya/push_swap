@@ -6,25 +6,27 @@
 /*   By: fathjami <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:20:14 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/19 11:48:38 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/19 23:07:01 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    get_elem_index(t_stack a, int elem)
+int	get_elem_index(t_stack *a, int elem)
 {
-    int    index;
+	int				index;
+	t_stack_node	*tmp;
 
-    index = -1;
-    while (a.top)
-    {
-        index++;
-		if (a.top->data == elem)
+	index = -1;
+	tmp = a->top;
+	while (tmp)
+	{
+		index++;
+		if (tmp->data == elem)
 			return (index);
-        a.top = a.top->next;
-    }
-    return (index);
+		tmp = tmp->next;
+	}
+	return (index);
 }
 
 int	min_elem(t_stack *s)
@@ -34,7 +36,7 @@ int	min_elem(t_stack *s)
 
 	tmp = s->top;
 	min = s->top->data;
-	while(tmp->next)
+	while (tmp->next)
 	{
 		tmp = tmp->next;
 		if (tmp->data < min)
@@ -50,7 +52,7 @@ int	max_elem(t_stack *s)
 
 	tmp = s->top;
 	max = s->top->data;
-	while(tmp->next)
+	while (tmp->next)
 	{
 		tmp = tmp->next;
 		if (tmp->data > max)
@@ -58,7 +60,29 @@ int	max_elem(t_stack *s)
 	}
 	return (max);
 }
-/*
+
+void	push_to_b(t_stack *b, t_stack *a)
+{
+	int	i;
+	int	index;
+
+	i = 0;
+	while (!is_empty(b))
+	{
+		i = 0;
+		index = get_elem_index(b, max_elem(b));
+		if (index == -1)
+			return ;
+		if (index <= b->size / 2)
+			while (i++ < index)
+				rb(b, 1);
+		else
+			while (i++ < b->size - index)
+				rrb(b, 1);
+		pa(a, b);
+	}
+}
+
 void	sort(t_stack *a,	t_stack *b)
 {
 	int	min;
@@ -68,8 +92,6 @@ void	sort(t_stack *a,	t_stack *b)
 	max = max_elem(a);
 	if (a->size < 100)
 		naive_sort(a, b);
-	else if (a->size >= 100 && a->size < 400)
-		six_chunks(a, b, min , max);
-	//else if (a->size >= 400)
-		//twelve_chunks(a, b, min , max);
-}*/
+	else
+		six_twelve_chunks(a, b, min, max);
+}
