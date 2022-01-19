@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 13:14:56 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/14 15:55:09 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/19 11:36:29 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,12 @@ void			rrr(t_stack *a, t_stack *b);
 
 int				stack_min(t_stack *s);
 void			naive_sort(t_stack *a, t_stack *b);
+void			sort(t_stack *a, t_stack *b);
+
+/*--------Chunks_Functions---------*/
+
+void	six_chunks(t_stack *a, t_stack *b, int min, int max);
+int		min_elem(t_stack *a);
+int		max_elem(t_stack *b);
+int		get_elem_index(t_stack a, int elem);
 #endif

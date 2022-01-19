@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 10:32:49 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/16 14:14:06 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:07:48 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int ac, char **av)
 	printf("%s STACK A\n%s", YELLOW, END);
 	print(a);
 */
-    naive_sort(a, b);
+    //naive_sort(a, b);
+	six_chunks(a, b, min_elem(a), max_elem(a));
 	return (0);
 }

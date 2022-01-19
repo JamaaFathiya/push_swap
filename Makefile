@@ -6,7 +6,7 @@
 #    By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 09:18:36 by fathjami          #+#    #+#              #
-#    Updated: 2022/01/16 13:23:38 by fathjami         ###   ########.fr        #
+#    Updated: 2022/01/19 10:00:16 by fathjami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = push_swap
 STACK = $(addprefix stack/, stack_implementation stack_operations)
 UTILS = $(addprefix utils/, parsing secondary_func)
 INSTRUCTIONS = $(addprefix instructions/, swap push rotate reverse_rotate)
-SORTING = $(addprefix sorting/, naive_sorting)
+SORTING = $(addprefix sorting/, chunks chunks_utils)
 HEADER = push_swap.h
 FILES = $(STACK) $(UTILS) $(INSTRUCTIONS) $(SORTING) core
 SRC = $(FILES:=.c)

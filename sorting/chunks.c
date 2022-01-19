@@ -6,7 +6,7 @@
 /*   By: fathjami <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:20:14 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/18 16:13:44 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/19 11:48:38 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int    get_elem_index(t_stack a, int elem)
 {
     int    index;
 
-    index = 0;
-    if (!a.top)
-        return (-1);
-    while (a.top && a.top->data != elem)
+    index = -1;
+    while (a.top)
     {
-        a.top = a.top->bellow;
         index++;
+		if (a.top->data == elem)
+			return (index);
+        a.top = a.top->next;
     }
     return (index);
 }
@@ -34,7 +34,7 @@ int	min_elem(t_stack *s)
 
 	tmp = s->top;
 	min = s->top->data;
-	while(tmp)
+	while(tmp->next)
 	{
 		tmp = tmp->next;
 		if (tmp->data < min)
@@ -50,7 +50,7 @@ int	max_elem(t_stack *s)
 
 	tmp = s->top;
 	max = s->top->data;
-	while(tmp)
+	while(tmp->next)
 	{
 		tmp = tmp->next;
 		if (tmp->data > max)
@@ -58,7 +58,7 @@ int	max_elem(t_stack *s)
 	}
 	return (max);
 }
-
+/*
 void	sort(t_stack *a,	t_stack *b)
 {
 	int	min;
@@ -66,10 +66,10 @@ void	sort(t_stack *a,	t_stack *b)
 
 	min = min_elem(a);
 	max = max_elem(a);
-	if (s->size < 100)
+	if (a->size < 100)
 		naive_sort(a, b);
-	else if (s->size >= 100 && s->size < 400)
+	else if (a->size >= 100 && a->size < 400)
 		six_chunks(a, b, min , max);
-	else if (s->size >= 400)
-		twelve_chunks(a, b, min , max);
-}
+	//else if (a->size >= 400)
+		//twelve_chunks(a, b, min , max);
+}*/
