@@ -5,20 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/20 02:52:11 by fathjami          #+#    #+#              #
-#    Updated: 2022/01/20 03:15:06 by fathjami         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/14 09:18:36 by fathjami          #+#    #+#              #
-#    Updated: 2022/01/20 02:51:54 by fathjami         ###   ########.fr        #
+#    Created: 2022/01/20 03:04:07 by fathjami          #+#    #+#              #
+#    Updated: 2022/01/20 03:10:43 by fathjami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +14,12 @@ CC = gcc
 RM = rm -rf
 FLAGS = -Wall -Wextra -Werror
 
-NAME = push_swap
-STACK = $(addprefix stack/, stack_implementation stack_operations)
-UTILS = $(addprefix utils/, parsing secondary_func)
-INSTRUCTIONS = $(addprefix instructions/, swap push rotate reverse_rotate)
-SORTING = $(addprefix sorting/, chunks chunks_utils)
-HEADER = push_swap.h
-FILES = $(STACK) $(UTILS) $(INSTRUCTIONS) $(SORTING) core
+NAME = checker
+STACK = $(addprefix stack_b/, stack_implementation stack_operations)
+UTILS = $(addprefix utils_b/, parsing secondary_func)
+INSTRUCTIONS = $(addprefix instructions_b/, swap push rotate reverse_rotate)
+HEADER = push_swap_bonus.h
+FILES = $(STACK) $(UTILS) $(INSTRUCTIONS) $(SORTING) checker bonus_utils
 SRC = $(FILES:=.c)
 OBJ = $(FILES:=.o)
 
@@ -70,16 +57,13 @@ test:
 	@sh testing/testing.sh $(ARG) 
 
 bonus: 
-	@make -C bonus
 
 clean: 
 	@$(RM) $(OBJ)
-	@make clean -C bonus
 	@printf " [$(BOLD)$(YELLOW):)$(END)] [$(BOLD)$(YELLOW)CLEAN$(END)]\n"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@make fclean -C bonus
 	@printf " [$(BOLD)$(YELLOW):)$(END)] [$(BOLD)$(YELLOW)FCLEAN$(END)]\n"
 
 re: fclean all

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 13:14:56 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 04:27:33 by fathjami         ###   ########.fr       */
+/*   Created: 2022/01/20 03:06:07 by fathjami          #+#    #+#             */
+/*   Updated: 2022/01/20 04:20:45 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
@@ -52,6 +53,10 @@ void			pop(t_stack *s);
 int				is_empty(t_stack *s);
 int				is_sorted(t_stack *s);
 
+//temporary function
+
+void			print(t_stack *s);
+
 /*-------Parsing_Functions-------*/
 
 void			quick_check(char	**str);
@@ -77,21 +82,7 @@ void			rra(t_stack *a, int flag);
 void			rrb(t_stack *b, int flag);
 void			rrr(t_stack *a, t_stack *b);
 
-/*---------Soting_Functions---------*/
-
-void			naive_sort(t_stack *a, t_stack *b);
-void			sort(t_stack *a, t_stack *b);
-void			sort_three(t_stack *s);
 void			free_stack(t_stack *s);
-/*--------Chunks_Functions---------*/
-
-void			six_twelve_chunks(t_stack *a, t_stack *b, int min, int max);
-void			psh(t_stack *a, t_stack *b, int subdiv);
-void			push_to_b(t_stack *b, t_stack *a);
-int				min_elem(t_stack *a);
-int				max_elem(t_stack *b);
-int				get_elem_index(t_stack *a, int elem);
-int				*one_chunk(t_stack *a, int subdiv);
 
 /*----------Bonus_Functions---------*/
 

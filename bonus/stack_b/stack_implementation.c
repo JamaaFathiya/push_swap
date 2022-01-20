@@ -6,11 +6,11 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:08:36 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 02:37:27 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/20 03:08:28 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	is_empty(t_stack *s)
 {

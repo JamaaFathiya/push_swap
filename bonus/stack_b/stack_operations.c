@@ -6,11 +6,11 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:15:22 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 04:28:17 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/20 03:08:37 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	push(int data, t_stack *s)
 {
@@ -86,5 +86,17 @@ void	exhale(t_stack *s)
 		s->base = tmp->prev;
 		free(tmp);
 		s->size--;
+	}
+}
+
+void	print(t_stack *s)
+{
+	t_stack_node	*n;
+
+	n = s->top;
+	while (n != NULL)
+	{
+		printf("%d\n", n->data);
+		n = n->next;
 	}
 }

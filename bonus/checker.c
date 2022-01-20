@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core.c                                             :+:      :+:    :+:   */
+/*   checker_tmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fathjami <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 10:32:49 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 01:46:13 by fathjami         ###   ########.fr       */
+/*   Created: 2022/01/20 03:55:37 by fathjami          #+#    #+#             */
+/*   Updated: 2022/01/20 04:25:39 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	free_stack(t_stack *s)
 {
@@ -25,6 +25,27 @@ void	free_stack(t_stack *s)
 	free(s);
 }
 
+void	read_from_stdin(t_stack *a, t_stack *b)
+{
+	char	*input;
+	char	c;
+
+	input = NULL;
+	while (read(0, &c, 1))
+	{
+		if (c == '\n')
+		{
+			swap_push(input, a, b);
+			rotate_reverse(input, a, b);
+			free(input);
+			input = ft_strdup("");
+		}
+		else
+			input = ft_strjoin(input, c);
+	}
+	free(input);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -32,11 +53,16 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	quick_check(av);
+	if (ac == 1)
+		exit (1);
 	a = fill_stack(ac, av, a);
 	b = init_stack(b);
-	if (!is_sorted(a))
-		sort(a, b);
+	quick_check(av);
+	read_from_stdin(a, b);
+	if (is_sorted(a))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	free_stack(a);
 	free_stack(b);
 	return (0);

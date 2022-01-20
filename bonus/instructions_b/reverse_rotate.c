@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 10:32:49 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 01:46:13 by fathjami         ###   ########.fr       */
+/*   Created: 2022/01/14 12:41:48 by fathjami          #+#    #+#             */
+/*   Updated: 2022/01/20 03:08:03 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	free_stack(t_stack *s)
+void	rra(t_stack *a, int flag)
 {
-	t_stack_node	*tmp;
-
-	tmp = s->top;
-	while (tmp)
-	{
-		free(tmp);
-		tmp = tmp->next;
-	}
-	free(s);
+	if (is_empty(a))
+		return ;
+	push(a->base->data, a);
+	exhale(a);
+	if (flag == 1)
+		write (1, "rra\n", 4);
 }
 
-int	main(int ac, char **av)
+void	rrb(t_stack *b, int flag)
 {
-	t_stack	*a;
-	t_stack	*b;
+	if (is_empty(b))
+		return ;
+	push(b->base->data, b);
+	exhale(b);
+	if (flag == 1)
+		write (1, "rrb\n", 4);
+}
 
-	a = NULL;
-	b = NULL;
-	quick_check(av);
-	a = fill_stack(ac, av, a);
-	b = init_stack(b);
-	if (!is_sorted(a))
-		sort(a, b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a, 0);
+	rrb(b, 0);
+	write (1, "rrr\n", 4);
 }
