@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 03:06:07 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 04:20:45 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:26:40 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void			free_stack(t_stack *s);
 
 /*----------Bonus_Functions---------*/
 
-void			swap_push(char *str, t_stack *a, t_stack *b);
+void			do_operation(char *str, t_stack *a, t_stack *b);
 void			rotate_reverse(char *str, t_stack *a, t_stack *b);
 void			read_from_stdin(t_stack *a, t_stack *b);
 char			*ft_strdup(char *s1);

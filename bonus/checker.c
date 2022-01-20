@@ -6,7 +6,7 @@
 /*   By: fathjami <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 03:55:37 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 04:25:39 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:26:20 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ void	read_from_stdin(t_stack *a, t_stack *b)
 	{
 		if (c == '\n')
 		{
-			swap_push(input, a, b);
-			rotate_reverse(input, a, b);
+			do_operation(input, a, b);
 			free(input);
 			input = ft_strdup("");
 		}

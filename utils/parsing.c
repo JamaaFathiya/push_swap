@@ -6,7 +6,7 @@
 /*   By: fathjami <fathjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:19:27 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/19 23:35:34 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:29:52 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ void	quick_check(char	**str)
 {
 	if (!check_args(str) || !uniq(str))
 	{
-		write (1, RED, 8);
-		write (1, "Error!\n", 7);
-		write (1, END, 5);
+		write (1, "Error\n", 6);
 		exit (1);
 	}
 }

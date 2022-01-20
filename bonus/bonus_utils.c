@@ -6,7 +6,7 @@
 /*   By: fathjami <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:11:20 by fathjami          #+#    #+#             */
-/*   Updated: 2022/01/20 04:26:39 by fathjami         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:35:37 by fathjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strjoin(char *s1, char c)
 	return (output);
 }
 
-void	swap_push(char *str, t_stack *a, t_stack *b)
+void	do_operation(char *str, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(str, "pa") == 0)
 		pa(a, 0);
@@ -74,6 +74,8 @@ void	swap_push(char *str, t_stack *a, t_stack *b)
 		sb(b, 0);
 	else if (ft_strcmp (str, "ss") == 0)
 		ss(a, b);
+	else
+		rotate_reverse(str, a, b);
 }
 
 void	rotate_reverse(char *str, t_stack *a, t_stack *b)
@@ -90,4 +92,12 @@ void	rotate_reverse(char *str, t_stack *a, t_stack *b)
 		rr(a, b);
 	else if (ft_strcmp (str, "rrr") == 0)
 		rrr(a, b);
+	else
+	{
+		free_stack(a);
+		free_stack(b);
+		free(str);
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 }
